@@ -1,5 +1,5 @@
 body {
-    background: lightcyan;
+    background: url('img/tree1.jpg'), url('img/field1.png');
     color: #fff;
 }
 h2{
