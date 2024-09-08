@@ -1,0 +1,77 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f0f5;
+    line-height: 1.65;
+}
+
+.container-satu {
+    width: 900px;
+    margin: 50px auto;
+    background: linear-gradient(to right, #f9f9f9, #ddd);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.kolom-utama {
+    flex: 3;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-satu,
+.sidebar-dua {
+    flex: 1;
+    background-color: #fafafa;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-satu {
+    background: linear-gradient(to bottom right, #ff7f50, #ff6347);
+    color: white;
+}
+
+.sidebar-satu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-satu ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar-satu ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar-satu h3,
+.sidebar-dua h3 {
+    margin-top: 0;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.sidebar-dua {
+    background-color: #87CEEB;
+    color: white;
+}
+
+img {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+}
