@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Form Biodata</title>
+
+    <script src="validasi_biodata.js"></script>
+  </head>
+  <body>
+    <form action="#">
+      <h2>Form Biodata</h2>
+
+      <div class="form-group">
+        <label for="nama">Nama</label>
+        <input
+          type="text"
+          name="nama"
+          id="nama"
+          placeholder="Masukkan nama Anda"
+        />
+        <p id="cekNama"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="alamat">Alamat</label>
+        <textarea
+          name="alamat"
+          id="alamat"
+          rows="3"
+          placeholder="Masukkan alamat Anda"
+        ></textarea>
+        <p class="cekAlamat"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="tglLahir">Tanggal Lahir</label>
+        <input type="date" name="tglLahir" id="tglLahir" />
+        <p class="cekTglLahir"></p>
+      </div>
+
+      <div class="form-group">
+        <label>Jenis Kelamin</label>
+        <div class="checkbox-group">
+          <label
+            ><input type="checkbox" name="jenisKelamin" value="Laki-Laki" />
+            Laki-Laki</label
+          >
+          <label
+            ><input type="checkbox" name="jenisKelamin" value="Wanita" />
+            Wanita</label
+          >
+        </div>
+        <p class="cekJenisKelamin"></p>
+      </div>
+
+      <div class="form-group">
+        <label>Hobby</label>
+        <div class="checkbox-group">
+          <label
+            ><input type="checkbox" name="hobby" value="Berenang" />
+            Berenang</label
+          >
+          <label
+            ><input type="checkbox" name="hobby" value="Berlari" />
+            Berlari</label
+          >
+          <label
+            ><input type="checkbox" name="hobby" value="Lain-Lain" />
+            Lain-Lain</label
+          >
+        </div>
+        <p class="cekHobby"></p>
+      </div>
+
+      <div class="form-group">
+        <label>Pekerjaan</label>
+        <div class="checkbox-group">
+          <label
+            ><input type="checkbox" name="pekerjaan" value="Swasta" />
+            Swasta</label
+          >
+          <label
+            ><input type="checkbox" name="pekerjaan" value="PNS" /> PNS</label
+          >
+          <label
+            ><input type="checkbox" name="pekerjaan" value="Lain-Lain" />
+            Lain-Lain</label
+          >
+        </div>
+        <p class="cekPekerjaan"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="nilaiAkhir">Nilai Akhir</label>
+        <textarea
+          name="nilaiAkhir"
+          id="nilaiAkhir"
+          placeholder="Masukkan nilai akhir"
+        ></textarea>
+        <p class="cekNilaiAkhir"></p>
+      </div>
+
+      <div class="form-group">
+        <label
+          ><input type="checkbox" name="kirim" id="kirim" /> Check Jika anda
+          akan mengirimkan data ini</label
+        >
+        <p class="cekKirim"></p>
+      </div>
+
+      <button name="kirim" type="submit">Cek!</button>
+    </form>
+  </body>
+</html>
