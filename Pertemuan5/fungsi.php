@@ -1,11 +1,17 @@
 <?php
 
-function perkenalan(){
-    echo "Assalamualaikum <br>";
-    echo "Perkenalkan nama saya Vira Alfita <br>";
+function perkenalan($nama, $salam){
+    echo $salam . ", ";
+    echo "Perkenalkan nama saya ". $nama . "<br>";
     echo "Senang berkenalan dengan anda <br>";
 }
 
-perkenalan();
-perkenalan();
+perkenalan("Ranni", "Salam");
+
+echo "<hr>";
+
+$saya = "Vira";
+$ucapanSalam = "Selamat pagi";
+
+perkenalan($saya, $ucapanSalam);
 ?>
