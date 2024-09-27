@@ -20,7 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const pekerjaan = document.querySelector('input[name="pekerjaan"]:checked');
     const nilaiAkhir = document.getElementById("nilaiAkhir").value.trim();
     const kirim = document.getElementById("kirim").checked;
-
+    const jkPria = document.getElementsByName("jenisKelaminP");
+    const jkWanita = document.getElementsByName("jenisKelaminW");
 
 
     let valid = true;
@@ -61,9 +62,21 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
+    // Validasi jenis kelamin
+    jkPria.addEventListener('change', function() {
+      if (jkPria.checked) {
+        jkWanita.checked = false;
+      }
+    });
+
+    jkWanita.addEventListener('change', function() {
+      if (jkWanita.checked) {
+        jkPria.checked = false;
+      }
+    });
     // Jika tidak valid, mencegah pengiriman form
     if (!valid) {
       event.preventDefault();
-    }
+    } 
   });
 });
