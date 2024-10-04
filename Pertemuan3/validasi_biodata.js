@@ -1,82 +1,81 @@
-// validasi_biodata.js
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("form");
-  const cekNama = document.getElementById("cekNama");
-  const cekAlamat = document.querySelector(".cekAlamat");
-  const cekTglLahir = document.querySelector(".cekTglLahir");
-  const cekJenisKelamin = document.querySelector(".cekJenisKelamin");
-  const cekHobby = document.querySelector(".cekHobby");
-  const cekPekerjaan = document.querySelector(".cekPekerjaan");
-  const cekNilaiAkhir = document.querySelector(".cekNilaiAkhir");
-  const cekKirim = document.querySelector(".cekKirim");
-  
+
+  // Selecting input elements
+  const nama = document.getElementById("nama");
+  const alamat = document.getElementById("alamat");
+  const tglLahir = document.getElementById("tglLahir");
+  const jenisKelaminP = document.getElementById("jenisKelaminP");
+  const jenisKelaminW = document.getElementById("jenisKelaminW");
+  const kirimCheckbox = document.getElementById("setujuKirim");
+
   form.addEventListener("submit", function (event) {
-    // Mengambil nilai input
-    const nama = document.getElementById("nama").value.trim();
-    const alamat = document.getElementById("alamat").value.trim();
-    const tglLahir = document.getElementById("tglLahir").value.trim();
-    const jenisKelamin = document.querySelector('input[name="jenisKelamin"]:checked');
-    const hobby = document.querySelector('input[name="hobby"]:checked');
-    const pekerjaan = document.querySelector('input[name="pekerjaan"]:checked');
-    const nilaiAkhir = document.getElementById("nilaiAkhir").value.trim();
-    const kirim = document.getElementById("kirim").checked;
-    const jkPria = document.getElementsByName("jenisKelaminP");
-    const jkWanita = document.getElementsByName("jenisKelaminW");
-
-
     let valid = true;
 
-    // Validasi jika checkbox kirim tercentang
-    if (kirim) {
-      if (!nama) {
-        cekNama.textContent = "Nama tidak boleh kosong!";
-        valid = false;
-      }
-      if (!alamat) {
-        cekAlamat.textContent = "Alamat tidak boleh kosong!";
-        valid = false;
-      }
-      if (!tglLahir) {
-        cekTglLahir.textContent = "Tanggal lahir tidak boleh kosong!";
-        valid = false;
-      }
-      if (!jenisKelamin) {
-        cekJenisKelamin.textContent = "Pilih jenis kelamin!";
-        valid = false;
-      }
-      if (!hobby) {
-        cekHobby.textContent = "Pilih salah satu hobby!";
-        valid = false;
-      }
-     // Validasi pekerjaan: tidak boleh lebih dari satu
-      if (pekerjaan.length === 0) {
-        cekPekerjaan.textContent = "Pilih salah satu pekerjaan!";
-        valid = false;
-      } else if (pekerjaan.length > 1) {
-        cekPekerjaan.textContent = "Pekerjaan tidak boleh lebih dari satu!";
-        valid = false;
-      }
-      if (!nilaiAkhir) {
-        cekNilaiAkhir.textContent = "Nilai akhir tidak boleh kosong!";
-        valid = false;
-      }
+    // Reset all error messages
+    document.getElementById("cekNama").innerHTML = "";
+    document.getElementById("cekAlamat").innerHTML = "";
+    document.querySelector(".cekTglLahir").innerHTML = "";
+    document.querySelector(".cekJenisKelamin").innerHTML = "";
+    document.querySelector(".cekHobby").innerHTML = "";
+    document.querySelector(".cekPekerjaan").innerHTML = "";
+    document.querySelector(".cekNilaiAkhir").innerHTML = "";
+    document.querySelector(".cekKirim").innerHTML = "";
+
+    // Nama validation
+    if (nama.value.trim() === "") {
+      document.getElementById("cekNama").innerHTML = "Nama harus diisi.";
+      valid = false;
     }
 
-    // Validasi jenis kelamin
-    jkPria.addEventListener('change', function() {
-      if (jkPria.checked) {
-        jkWanita.checked = false;
-      }
-    });
+    // Alamat validation
+    if (alamat.value.trim() === "") {
+      document.getElementById("cekAlamat").innerHTML = "Alamat harus diisi.";
+      valid = false;
+    }
 
-    jkWanita.addEventListener('change', function() {
-      if (jkWanita.checked) {
-        jkPria.checked = false;
-      }
-    });
-    // Jika tidak valid, mencegah pengiriman form
+    // Tanggal Lahir validation
+    if (tglLahir.value === "") {
+      document.querySelector(".cekTglLahir").innerHTML = "Tanggal lahir harus diisi.";
+      valid = false;
+    }
+
+    // Jenis Kelamin validation (at least one must be checked)
+    if (!jenisKelaminP.checked && !jenisKelaminW.checked) {
+      document.querySelector(".cekJenisKelamin").innerHTML = "Pilih jenis kelamin.";
+      valid = false;
+    }
+
+    // Hobby validation (at least one must be checked)
+    const hobbyChecked = document.querySelectorAll("input[name='hobby']:checked");
+    if (hobbyChecked.length === 0) {
+      document.querySelector(".cekHobby").innerHTML = "Pilih minimal satu hobby.";
+      valid = false;
+    }
+
+    // Pekerjaan validation (at least one must be checked)
+    const pekerjaanChecked = document.querySelectorAll("input[name='pekerjaan']:checked");
+    if (pekerjaanChecked.length === 0) {
+      document.querySelector(".cekPekerjaan").innerHTML = "Pilih minimal satu pekerjaan.";
+      valid = false;
+    }
+
+    // Nilai Akhir validation
+    const nilaiAkhir = document.getElementById("nilaiAkhir").value.trim();
+    if (nilaiAkhir === "") {
+      document.querySelector(".cekNilaiAkhir").innerHTML = "Masukkan nilai akhir.";
+      valid = false;
+    }
+
+    // Kirim checkbox validation
+    if (!kirimCheckbox.checked) {
+      document.querySelector(".cekKirim").innerHTML = "Anda harus mencentang checkbox kirim.";
+      valid = false;
+    }
+
+    // If form is invalid, prevent form submission
     if (!valid) {
-      event.preventDefault();
-    } 
+      event.preventDefault(); // Stop the form from submitting
+    }
   });
 });
